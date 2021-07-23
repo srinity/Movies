@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		51B0CB9126AB2C2200897C2D /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 51B0CB9026AB2C2200897C2D /* Config.xcconfig */; };
 		5CA5B04F8A4CAAD73661A0B2 /* libPods-Movies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B0B9E7D465593050435B37 /* libPods-Movies.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9FDE25659BAC77D2E9DE5EC2 /* libPods-Movies-MoviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B3E526442AC1BE95584AC6 /* libPods-Movies-MoviesTests.a */; };
@@ -40,6 +41,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Movies/main.m; sourceTree = "<group>"; };
 		26A533293D29537C5283A705 /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
 		46B0B9E7D465593050435B37 /* libPods-Movies.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Movies.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B0CB9026AB2C2200897C2D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Movies/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8768A24B86FDDABB1D08A154 /* Pods-Movies-MoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies-MoviesTests.debug.xcconfig"; path = "Target Support Files/Pods-Movies-MoviesTests/Pods-Movies-MoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E793EFD07291626FBF764093 /* Pods-Movies-MoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies-MoviesTests.release.xcconfig"; path = "Target Support Files/Pods-Movies-MoviesTests/Pods-Movies-MoviesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				51B0CB9026AB2C2200897C2D /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* Movies */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MoviesTests */,
@@ -145,7 +148,6 @@
 				8768A24B86FDDABB1D08A154 /* Pods-Movies-MoviesTests.debug.xcconfig */,
 				E793EFD07291626FBF764093 /* Pods-Movies-MoviesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -244,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				51B0CB9126AB2C2200897C2D /* Config.xcconfig in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +533,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51B0CB9026AB2C2200897C2D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -595,6 +599,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51B0CB9026AB2C2200897C2D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
