@@ -8,7 +8,12 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "clean:node": "rm -rf node_modules package-lock.json",
+    "clean:android": "cd android && ./gradlew clean && cd ..",
+    "clean:ios": "cd ios && xcodebuild -configuration Debug clean && cd ..",
+    "clean:build-folders": "rm -rf ios/build android/build",
+    "install:pods": "cd ios && pod install && cd .."
   },
   "dependencies": {
     "react": "17.0.1",
