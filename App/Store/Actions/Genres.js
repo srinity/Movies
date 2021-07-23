@@ -15,7 +15,6 @@ function getGenreList(onFinish) {
         onFinish(response)
       },
       onError: error => {
-        alert(error)
         dispatch(getGenreListFailed(error))
         onFinish([])
       }
