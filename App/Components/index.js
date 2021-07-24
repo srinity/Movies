@@ -1,3 +1,4 @@
+import Avatar from './Avatar'
 import Badge from './Badge'
 import BadgeList from './BadgeList'
 import Header from './Header'
@@ -10,6 +11,7 @@ import Tabs from './Tabs'
 import TouchableComponent from './TouchableComponent'
 
 export {
+  Avatar,
   Badge,
   BadgeList,
   Header,
