@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { MoviesScreen } from '../Screens'
+import { MoviesScreen, MovieScreen } from '../Screens'
 
 import { MoviesActions } from '../Store/Actions'
 
@@ -42,6 +42,8 @@ class AppNavigation extends Component {
               name="Movies"
               component={ConnectedComponents.Movies}
             />
+
+            <Stack.Screen name="Movie" component={MovieScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>

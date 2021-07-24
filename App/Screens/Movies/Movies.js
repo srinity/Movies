@@ -50,7 +50,9 @@ class Movies extends Component {
   }
 
   onMoviePress = movie => {
-    alert(movie.id)
+    const { navigation } = this.props
+
+    navigation.navigate('Movie', { movieId: movie.id })
   }
 
   onMomentumScrollBegin = key => {
@@ -224,6 +226,9 @@ Movies.propTypes = {
     upcoming: PropTypes.number,
     topRated: PropTypes.number,
     popular: PropTypes.number
+  }),
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func
   })
 }
 
