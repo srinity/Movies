@@ -11,10 +11,25 @@ const initialState = {
     topRated: false,
     popular: false
   },
+  isAdditionalPagesLoading: {
+    upcoming: false,
+    topRated: false,
+    popular: false
+  },
   error: {
     upcoming: null,
     topRated: null,
     popular: null
+  },
+  currentPage: {
+    upcoming: 0,
+    topRated: 0,
+    popular: 0
+  },
+  totalPages: {
+    upcoming: undefined,
+    topRated: undefined,
+    popular: undefined
   }
 }
 
@@ -27,14 +42,39 @@ function MoviesReducer(state = initialState, action = {}) {
           ...state.error,
           upcoming: null
         },
-        isLoading: { ...state.isLoading, upcoming: true }
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, upcoming: true } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                upcoming: true
+              }
+            })
       }
 
     case ActionTypes.GET_UPCOMING_MOVIES_SUCCESS:
       return {
         ...state,
-        movies: { ...state.movies, upcoming: action.payload },
-        isLoading: { ...state.isLoading, upcoming: false }
+        movies: {
+          ...state.movies,
+          upcoming: [...state.movies.upcoming, ...action.payload.movies]
+        },
+        currentPage: {
+          ...state.currentPage,
+          upcoming: action.payload.currentPage
+        },
+        totalPages: {
+          ...state.totalPages,
+          upcoming: action.payload.totalPages
+        },
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, upcoming: false } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                upcoming: false
+              }
+            })
       }
 
     case ActionTypes.GET_UPCOMING_MOVIES_FAILED:
@@ -44,7 +84,14 @@ function MoviesReducer(state = initialState, action = {}) {
           ...state.error,
           upcoming: action.payload
         },
-        isLoading: { ...state.isLoading, upcoming: false }
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, upcoming: false } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                upcoming: false
+              }
+            })
       }
 
     case ActionTypes.GET_POPULAR_MOVIES_STARTED:
@@ -54,14 +101,39 @@ function MoviesReducer(state = initialState, action = {}) {
           ...state.error,
           popular: null
         },
-        isLoading: { ...state.isLoading, popular: true }
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, popular: true } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                popular: true
+              }
+            })
       }
 
     case ActionTypes.GET_POPULAR_MOVIES_SUCCESS:
       return {
         ...state,
-        movies: { ...state.movies, popular: action.payload },
-        isLoading: { ...state.isLoading, popular: false }
+        movies: {
+          ...state.movies,
+          popular: [...state.movies.popular, ...action.payload.movies]
+        },
+        currentPage: {
+          ...state.currentPage,
+          popular: action.payload.currentPage
+        },
+        totalPages: {
+          ...state.totalPages,
+          popular: action.payload.totalPages
+        },
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, popular: false } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                popular: false
+              }
+            })
       }
 
     case ActionTypes.GET_POPULAR_MOVIES_FAILED:
@@ -71,7 +143,14 @@ function MoviesReducer(state = initialState, action = {}) {
           ...state.error,
           popular: action.payload
         },
-        isLoading: { ...state.isLoading, popular: false }
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, popular: false } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                popular: false
+              }
+            })
       }
 
     case ActionTypes.GET_TOP_RATED_MOVIES_STARTED:
@@ -81,14 +160,39 @@ function MoviesReducer(state = initialState, action = {}) {
           ...state.error,
           topRated: null
         },
-        isLoading: { ...state.isLoading, topRated: true }
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, topRated: true } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                topRated: true
+              }
+            })
       }
 
     case ActionTypes.GET_TOP_RATED_MOVIES_SUCCESS:
       return {
         ...state,
-        movies: { ...state.movies, topRated: action.payload },
-        isLoading: { ...state.isLoading, topRated: false }
+        movies: {
+          ...state.movies,
+          topRated: [...state.movies.topRated, ...action.payload.movies]
+        },
+        currentPage: {
+          ...state.currentPage,
+          topRated: action.payload.currentPage
+        },
+        totalPages: {
+          ...state.totalPages,
+          topRated: action.payload.totalPages
+        },
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, topRated: false } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                topRated: false
+              }
+            })
       }
 
     case ActionTypes.GET_TOP_RATED_MOVIES_FAILED:
@@ -98,7 +202,14 @@ function MoviesReducer(state = initialState, action = {}) {
           ...state.error,
           topRated: action.payload
         },
-        isLoading: { ...state.isLoading, topRated: false }
+        ...(action.meta
+          ? { isLoading: { ...state.isLoading, topRated: false } }
+          : {
+              isAdditionalPagesLoading: {
+                ...state.isAdditionalPagesLoading,
+                topRated: false
+              }
+            })
       }
 
     default:

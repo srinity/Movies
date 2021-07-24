@@ -9,10 +9,12 @@ import {
 
 function mapUpcomingMoviesDataResponse(response = { data: {} }, genreList) {
   const {
-    data: { results }
+    data: { results, total_pages: totalPages, page: currentPage }
   } = response
 
-  const mappedResponse = _map(results, result => {
+  const mappedResponse = { totalPages, currentPage }
+
+  mappedResponse.movies = _map(results, result => {
     const {
       id,
       title,

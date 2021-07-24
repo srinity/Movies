@@ -1,4 +1,4 @@
-import { isEmpty as _isEmpty } from 'lodash'
+import { isEmpty as _isEmpty, isNil as _isNil } from 'lodash'
 
 import { MoviesServices } from '../../Services'
 
@@ -16,89 +16,148 @@ import {
 
 import { getGenreList } from './Genres'
 
-function getUpcomingMovies(genreList, pageNumber) {
+function isValidatePage(pageNumber, totalPages) {
+  return _isNil(totalPages) || pageNumber <= totalPages
+}
+
+function getUpcomingMovies(genreList, pageNumber, totalPages, initialPage) {
   return dispatch => {
     const action = genres => {
       MoviesServices.getUpcomingMoviesData({ page: pageNumber }, genres, {
-        onStart: () => dispatch(getUpcomingMoviesStarted()),
-        onSuccess: response => dispatch(getUpcomingMoviesSuccess(response)),
-        onError: error => dispatch(getUpcomingMoviesFailed(error))
+        onStart: () => dispatch(getUpcomingMoviesStarted(initialPage)),
+        onSuccess: ({ totalPages: _totalPages, movies, currentPage }) =>
+          dispatch(
+            getUpcomingMoviesSuccess(
+              movies,
+              currentPage,
+              _totalPages,
+              initialPage
+            )
+          ),
+        onError: error => dispatch(getUpcomingMoviesFailed(error, initialPage))
       })
     }
 
-    if (_isEmpty(genreList)) {
-      dispatch(getGenreList(_genreList => action(_genreList)))
-    } else {
-      action(genreList)
+    if (isValidatePage(pageNumber, totalPages)) {
+      if (_isEmpty(genreList)) {
+        dispatch(getGenreList(_genreList => action(_genreList)))
+      } else {
+        action(genreList)
+      }
     }
   }
 }
 
-function getPopularMovies(genreList, pageNumber) {
+function getPopularMovies(genreList, pageNumber, totalPages, initialPage) {
   return dispatch => {
-    MoviesServices.getPopularMoviesData({ page: pageNumber }, genreList, {
-      onStart: () => dispatch(getPopularMoviesStarted()),
-      onSuccess: response => dispatch(getPopularMoviesSuccess(response)),
-      onError: error => dispatch(getPopularMoviesFailed(error))
-    })
+    if (isValidatePage(pageNumber, totalPages)) {
+      MoviesServices.getPopularMoviesData({ page: pageNumber }, genreList, {
+        onStart: () => dispatch(getPopularMoviesStarted(initialPage)),
+        onSuccess: ({ totalPages: _totalPages, movies, currentPage }) =>
+          dispatch(
+            getPopularMoviesSuccess(
+              movies,
+              currentPage,
+              _totalPages,
+              initialPage
+            )
+          ),
+        onError: error => dispatch(getPopularMoviesFailed(error, initialPage))
+      })
+    }
   }
 }
 
-function getTopRatedMovies(genreList, pageNumber) {
+function getTopRatedMovies(genreList, pageNumber, totalPages, initialPage) {
   return dispatch => {
-    MoviesServices.getTopRatedMoviesData({ page: pageNumber }, genreList, {
-      onStart: () => dispatch(getTopRatedMoviesStarted()),
-      onSuccess: response => dispatch(getTopRatedMoviesSuccess(response)),
-      onError: error => dispatch(getTopRatedMoviesFailed(error))
-    })
+    if (isValidatePage(pageNumber, totalPages)) {
+      MoviesServices.getTopRatedMoviesData({ page: pageNumber }, genreList, {
+        onStart: () => dispatch(getTopRatedMoviesStarted(initialPage)),
+        onSuccess: ({ totalPages: _totalPages, movies, currentPage }) =>
+          dispatch(
+            getTopRatedMoviesSuccess(
+              movies,
+              currentPage,
+              _totalPages,
+              initialPage
+            )
+          ),
+        onError: error => dispatch(getTopRatedMoviesFailed(error, initialPage))
+      })
+    }
   }
 }
 
-function getUpcomingMoviesStarted() {
-  return { type: GET_UPCOMING_MOVIES_STARTED }
+function getUpcomingMoviesStarted(initialPage) {
+  return { type: GET_UPCOMING_MOVIES_STARTED, meta: initialPage }
 }
 
-function getUpcomingMoviesSuccess(data) {
-  return { type: GET_UPCOMING_MOVIES_SUCCESS, payload: data }
+function getUpcomingMoviesSuccess(
+  movies,
+  currentPage,
+  totalPages,
+  initialPage
+) {
+  return {
+    type: GET_UPCOMING_MOVIES_SUCCESS,
+    payload: { movies, currentPage, totalPages },
+    meta: initialPage
+  }
 }
 
-function getUpcomingMoviesFailed(error) {
+function getUpcomingMoviesFailed(error, initialPage) {
   return {
     type: GET_UPCOMING_MOVIES_FAILED,
     error: true,
-    payload: error
+    payload: error,
+    meta: initialPage
   }
 }
 
-function getPopularMoviesStarted() {
-  return { type: GET_POPULAR_MOVIES_STARTED }
+function getPopularMoviesStarted(initialPage) {
+  return { type: GET_POPULAR_MOVIES_STARTED, meta: initialPage }
 }
 
-function getPopularMoviesSuccess(data) {
-  return { type: GET_POPULAR_MOVIES_SUCCESS, payload: data }
+function getPopularMoviesSuccess(movies, currentPage, totalPages, initialPage) {
+  return {
+    type: GET_POPULAR_MOVIES_SUCCESS,
+    payload: { movies, currentPage, totalPages },
+    meta: initialPage
+  }
 }
 
-function getPopularMoviesFailed(error) {
+function getPopularMoviesFailed(error, initialPage) {
   return {
     type: GET_POPULAR_MOVIES_FAILED,
     error: true,
-    payload: error
+    payload: error,
+    meta: initialPage
   }
 }
 
-function getTopRatedMoviesStarted() {
-  return { type: GET_TOP_RATED_MOVIES_STARTED }
+function getTopRatedMoviesStarted(initialPage) {
+  return { type: GET_TOP_RATED_MOVIES_STARTED, meta: initialPage }
 }
 
-function getTopRatedMoviesSuccess(data) {
-  return { type: GET_TOP_RATED_MOVIES_SUCCESS, payload: data }
+function getTopRatedMoviesSuccess(
+  movies,
+  currentPage,
+  totalPages,
+  initialPage
+) {
+  return {
+    type: GET_TOP_RATED_MOVIES_SUCCESS,
+    payload: { movies, currentPage, totalPages },
+    meta: initialPage
+  }
 }
 
-function getTopRatedMoviesFailed(error) {
+function getTopRatedMoviesFailed(error, initialPage) {
   return {
     type: GET_TOP_RATED_MOVIES_FAILED,
     error: true,
-    payload: error
+    payload: error,
+    meta: initialPage
   }
 }
 
