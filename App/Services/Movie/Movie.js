@@ -45,7 +45,7 @@ function mapMovieCreditsResponse(response = { data: {} }) {
     return {
       id,
       name,
-      image: `${BASE_IMAGE_URL}${profile}`
+      image: profile ? `${BASE_IMAGE_URL}${profile}` : null
     }
   })
 
