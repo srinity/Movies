@@ -3,6 +3,7 @@ import { Text, ScrollView, View, ActivityIndicator } from 'react-native'
 import PropTypes from 'prop-types'
 
 import { Screen, MovieInfo, BadgeList } from '../../Components'
+import { AvatarList } from '../../Containers'
 
 import { Colors } from '../../Theme'
 
@@ -33,8 +34,12 @@ class Movie extends Component {
   }
 
   render() {
-    const { movieDetails, isMovieDetailsLoading, isMovieCreditsLoading } =
-      this.props
+    const {
+      movieDetails,
+      movieCredits,
+      isMovieDetailsLoading,
+      isMovieCreditsLoading
+    } = this.props
 
     console.tron.warn(this.props)
     return (
@@ -58,6 +63,7 @@ class Movie extends Component {
             />
 
             <Text style={styles.headerTextStyle}>Credits</Text>
+            <AvatarList data={movieCredits} />
           </ScrollView>
         )}
       </Screen>
