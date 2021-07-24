@@ -1,3 +1,4 @@
+import AvatarList from './AvatarList'
 import MoviesList from './MoviesList'
 
-export { MoviesList }
+export { AvatarList, MoviesList }
