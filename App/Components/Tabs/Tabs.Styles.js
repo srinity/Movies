@@ -8,13 +8,15 @@ export default StyleSheet.create({
   },
   headerContainer: {
     marginHorizontal: 15,
-    marginBottom: 15
+    marginBottom: 15,
+    height: 35
   },
   label: {
-    color: Colors.getBlackColor(0.3),
+    color: Colors.blackColor,
     fontSize: Fonts.h5,
     paddingVertical: 5,
-    paddingHorizontal: 0
+    paddingHorizontal: 0,
+    fontWeight: 'bold'
   },
   mainView: {
     flexDirection: 'row'

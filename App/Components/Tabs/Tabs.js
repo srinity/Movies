@@ -37,19 +37,6 @@ class Tabs extends Component {
     }
   }
 
-  getFontStyle = ({ index, activeTab }) => {
-    const styleArr = [styles.label]
-    if (activeTab === index) {
-      styleArr.push({
-        fontWeight: 'bold',
-        fontSize:
-          index > 0 && Platform.OS === 'android' ? Fonts.h5 : Fonts.h5 + 1
-      })
-    }
-
-    return styleArr
-  }
-
   handleActiveTab = (item, index) => {
     const { data, onSelectedTab } = this.props
 
@@ -93,16 +80,13 @@ class Tabs extends Component {
       valueExtractor,
       activeTabColor
     } = this.props
-    const { activeTab } = this.state
+
     return _map(data, (item, index) => {
       const key = _isFunction(keyExtractor)
         ? keyExtractor(item)
         : `header-tab-${index}`
       const title = _isString(item) ? item : valueExtractor(item)
-      const labelStyle = this.getFontStyle({
-        index,
-        activeTab
-      })
+
       const { accessibilityLabel = null } = item
 
       const backgroundColorStyle = {
@@ -115,7 +99,7 @@ class Tabs extends Component {
       const colorStyle = {
         color: this.indicators[index].interpolate({
           inputRange: [0, 1],
-          outputRange: [Colors.getBlackColor(0.3), Colors.getWhiteColor(1)]
+          outputRange: [Colors.getBlackColor(1), Colors.getWhiteColor(1)]
         })
       }
 
@@ -139,7 +123,7 @@ class Tabs extends Component {
           ) : (
             <AnimatedLabel
               title={title}
-              textStyle={[labelStyle, colorStyle]}
+              textStyle={[styles.label, colorStyle]}
               onPress={() => this.handleActiveTab(item, index)}
               activeOpacity={1}
               textAccessibilityLabel={accessibilityLabel}
