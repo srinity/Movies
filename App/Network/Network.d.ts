@@ -16,7 +16,7 @@ export default interface Network {
    * @param  {RequestUtilities} utils
    * @returns Promise
    */
-  request<T>(config: AxiosRequestConfig, utils: RequestUtilities): Promise<T>
+  request<T>(config: AxiosRequestConfig, utils: RequestUtilities<T>): Promise<T>
 }
 
 // eslint-disable-next-line import/export

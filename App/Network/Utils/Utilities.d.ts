@@ -1,11 +1,11 @@
 import { AxiosResponse, AxiosError } from 'axios'
 
-export interface RequestUtilities {
+export interface RequestUtilities<T, R = any, E = any, F = any> {
   onStart?(): void
-  onSuccess?<T>(response: T): void
-  onError?<T>(error: T): void
-  responseMapper?<T, R>(response: AxiosResponse<T>): R
-  errorMapper?<T, R>(error: AxiosError<T>): R
+  onSuccess?(response: T): void
+  onError?(error: E): void
+  responseMapper?(response: AxiosResponse<R>): T
+  errorMapper?(error: AxiosError<F>): E
   onInternetConnectionFail?(retry: () => void): void
 }
 
