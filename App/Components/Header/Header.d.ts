@@ -1,6 +1,9 @@
 import { FC } from 'react'
 import { TextProps } from 'react-native'
 
+declare const Header: FC<HeaderProps>
+export default Header
+
 export interface HeaderProps extends TextProps {
   /**
    * The title of the header
@@ -21,5 +24,3 @@ export interface HeaderProps extends TextProps {
    */
   onBackPress?(): void
 }
-
-export default class Header extends FC<HeaderProps> {}
