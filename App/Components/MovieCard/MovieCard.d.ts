@@ -51,4 +51,4 @@ export interface MovieCardProps extends MovieData, TouchableComponentProps {
   onPress(): void
 }
 
-export default class MovieCard extends Component<MovieCardProps> { }
+export default class MovieCard extends Component<MovieCardProps> {}
