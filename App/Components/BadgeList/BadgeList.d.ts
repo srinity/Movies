@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { TextProps, ViewStyle, TextStyle, StyleProp } from 'react-native'
 
 export type BadgeItem = {
+  id: number
   name: string
 }
 
