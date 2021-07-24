@@ -30,7 +30,7 @@ function MovieCard({
         <View style={styles.infoContainerStyle}>
           <Text style={styles.titleStyle}>{title}</Text>
           <Text style={styles.dateTextStyle}>
-            {moment(releaseDate).format('MMM D, YYYY')}
+            {releaseDate ? moment(releaseDate).format('MMM D, YYYY') : ''}
           </Text>
 
           <BadgeList data={genres} />
@@ -49,7 +49,7 @@ function MovieCard({
 MovieCard.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  releaseDate: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string,
   genres: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
