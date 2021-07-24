@@ -20,8 +20,8 @@ function MovieInfo({ image, title, voteAverage, ...props }) {
 }
 
 MovieInfo.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  title: PropTypes.string,
   voteAverage: PropTypes.number
 }
 

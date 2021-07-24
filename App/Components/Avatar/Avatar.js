@@ -22,7 +22,7 @@ function Avatar({ image, name, ...props }) {
 }
 
 Avatar.propTypes = {
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   name: PropTypes.string.isRequired
 }
 
