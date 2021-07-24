@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View, Text, ActivityIndicator } from 'react-native'
+import { View, ActivityIndicator } from 'react-native'
 import PropTypes from 'prop-types'
+import { isEmpty as _isEmpty } from 'lodash'
 
 import { Screen, Tabs } from '../../Components'
 
@@ -22,6 +23,28 @@ class Movies extends Component {
     getUpcomingMovies(genreList, 1)
   }
 
+  onSelectedTabChange = tab => {
+    const { movies, genreList, getPopularMovies, getTopRatedMovies } =
+      this.props
+
+    switch (tab.label) {
+      case TABS_DATA[1].label: {
+        if (_isEmpty(movies.popular)) {
+          getPopularMovies(genreList, 1)
+        }
+
+        break
+      }
+      case TABS_DATA[2].label: {
+        if (_isEmpty(movies.topRated)) {
+          getTopRatedMovies(genreList, 1)
+        }
+
+        break
+      }
+    }
+  }
+
   onMoviePress = movie => {
     alert(movie.id)
   }
@@ -41,7 +64,7 @@ class Movies extends Component {
     console.tron.warn(this.props)
     return (
       <Screen title="Movies">
-        <Tabs data={TABS_DATA}>
+        <Tabs data={TABS_DATA} onSelectedTab={this.onSelectedTabChange}>
           <Tabs.Tab index={0}>
             {this.renderMovieList(
               isLoading.upcoming,
@@ -51,15 +74,19 @@ class Movies extends Component {
           </Tabs.Tab>
 
           <Tabs.Tab index={1}>
-            <View style={styles.containerStyle}>
-              <Text>Popular Movies Screen</Text>
-            </View>
+            {this.renderMovieList(
+              isLoading.popular,
+              movies.popular,
+              this.onMoviePress
+            )}
           </Tabs.Tab>
 
           <Tabs.Tab index={2}>
-            <View style={styles.containerStyle}>
-              <Text>Top Rated Movies Screen</Text>
-            </View>
+            {this.renderMovieList(
+              isLoading.topRated,
+              movies.topRated,
+              this.onMoviePress
+            )}
           </Tabs.Tab>
         </Tabs>
       </Screen>
