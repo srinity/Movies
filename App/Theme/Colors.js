@@ -1,8 +1,8 @@
 export default {
   brandColor: '#39ff14',
   getBrandColor: (alphaValue) => `rgba(57, 255, 20, ${alphaValue})`,
-  backgroundColor: '#ffffff',
-  getBackgroundColor: (alphaValue) => `rgba(255, 255, 255, ${alphaValue})`,
+  backgroundColor: '#f5f5f5',
+  getBackgroundColor: (alphaValue) => `rgba(245, 245, 245, ${alphaValue})`,
   whiteColor: '#ffffff',
   getWhiteColor: (alphaValue) => `rgba(255, 255, 255, ${alphaValue})`,
   blackColor: '#000000',
