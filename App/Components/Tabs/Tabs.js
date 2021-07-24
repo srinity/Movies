@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {
   View,
-  Platform,
   Animated,
   Easing,
   ViewPropTypes,
@@ -16,7 +15,7 @@ import PropTypes from 'prop-types'
 
 import { AnimatedLabel } from '../Label'
 
-import { Colors, Fonts } from '../../Theme'
+import { Colors } from '../../Theme'
 
 import Tab from './Tab'
 
