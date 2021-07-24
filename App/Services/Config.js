@@ -6,7 +6,8 @@ const API_URLS = Object.freeze({
   popularMovies: 'movie/popular',
   topRatedMovies: 'movie/top_rated',
   genreList: 'genre/movie/list',
-  movieDetails: 'movie/'
+  movieDetails: id => `movie/${id}`,
+  movieCredits: id => `movie/${id}/credits`
 })
 
 const BASE_IMAGE_URL = 'https://www.themoviedb.org/t/p/w1280'
