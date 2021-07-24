@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 
+import { Screen } from '../../Components'
+
 import styles from './Movies.Styles'
 
 class Movies extends Component {
@@ -13,9 +15,11 @@ class Movies extends Component {
   render() {
     console.tron.warn(this.props)
     return (
-      <View style={styles.containerStyle}>
-        <Text>Movies Screen</Text>
-      </View>
+      <Screen title="Movies">
+        <View style={styles.containerStyle}>
+          <Text>Movies Screen</Text>
+        </View>
+      </Screen>
     )
   }
 }
