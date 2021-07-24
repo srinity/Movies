@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, ScrollView, View, ActivityIndicator } from 'react-native'
 import PropTypes from 'prop-types'
 
-import { Screen, MovieInfo } from '../../Components'
+import { Screen, MovieInfo, BadgeList } from '../../Components'
 
 import { Colors } from '../../Theme'
 
@@ -44,6 +44,17 @@ class Movie extends Component {
         ) : (
           <ScrollView style={styles.containerStyle}>
             <MovieInfo {...movieDetails} />
+
+            <Text style={styles.headerTextStyle}>Overview</Text>
+            <Text style={styles.overviewTextStyle}>
+              {movieDetails?.overview}
+            </Text>
+
+            <Text style={styles.headerTextStyle}>Genres</Text>
+            <BadgeList
+              data={movieDetails?.genres}
+              itemTextStyle={styles.badgeTextStyle}
+            />
           </ScrollView>
         )}
       </Screen>
