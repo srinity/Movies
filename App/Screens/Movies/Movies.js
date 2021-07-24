@@ -2,9 +2,15 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 
-import { Screen } from '../../Components'
+import { Screen, Tabs } from '../../Components'
 
 import styles from './Movies.Styles'
+
+const TABS_DATA = [
+  { label: 'Upcoming' },
+  { label: 'Popular' },
+  { label: 'Top Rated' }
+]
 
 class Movies extends Component {
   componentDidMount() {
@@ -16,9 +22,25 @@ class Movies extends Component {
     console.tron.warn(this.props)
     return (
       <Screen title="Movies">
-        <View style={styles.containerStyle}>
-          <Text>Movies Screen</Text>
-        </View>
+        <Tabs data={TABS_DATA}>
+          <Tabs.Tab index={0}>
+            <View style={styles.containerStyle}>
+              <Text>Upcoming Movies Screen</Text>
+            </View>
+          </Tabs.Tab>
+
+          <Tabs.Tab index={1}>
+            <View style={styles.containerStyle}>
+              <Text>Popular Movies Screen</Text>
+            </View>
+          </Tabs.Tab>
+
+          <Tabs.Tab index={2}>
+            <View style={styles.containerStyle}>
+              <Text>Top Rated Movies Screen</Text>
+            </View>
+          </Tabs.Tab>
+        </Tabs>
       </Screen>
     )
   }
