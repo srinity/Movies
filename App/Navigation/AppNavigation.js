@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux'
 
 import { MoviesScreen, MovieScreen } from '../Screens'
 
-import { MoviesActions } from '../Store/Actions'
+import { MoviesActions, MovieActions } from '../Store/Actions'
 
 const Stack = createStackNavigator()
 
@@ -27,7 +27,17 @@ class AppNavigation extends Component {
             ...bindActionCreators(MoviesActions, dispatch)
           }
         }
-      )(MoviesScreen)
+      )(MoviesScreen),
+      Movie: connect(
+        ({ movie }) => ({
+          ...movie
+        }),
+        dispatch => {
+          return {
+            ...bindActionCreators(MovieActions, dispatch)
+          }
+        }
+      )(MovieScreen)
     }
   }
 
@@ -43,7 +53,7 @@ class AppNavigation extends Component {
               component={ConnectedComponents.Movies}
             />
 
-            <Stack.Screen name="Movie" component={MovieScreen} />
+            <Stack.Screen name="Movie" component={ConnectedComponents.Movie} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
