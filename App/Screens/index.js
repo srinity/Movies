@@ -1,3 +1,4 @@
+import MovieScreen from './Movie'
 import MoviesScreen from './Movies'
 
-export { MoviesScreen }
+export { MovieScreen, MoviesScreen }
