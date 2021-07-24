@@ -15,7 +15,7 @@ export default StyleSheet.create({
   headerTextStyle: {
     fontSize: Fonts.h4,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 5,
     color: Colors.blackColor
   },
   overviewTextStyle: {
@@ -26,5 +26,8 @@ export default StyleSheet.create({
   badgeTextStyle: {
     fontSize: Fonts.h5,
     fontWeight: 'bold'
+  },
+  badgeListContainerStyle: {
+    marginBottom: 20
   }
 })

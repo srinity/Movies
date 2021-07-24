@@ -54,7 +54,10 @@ class Movie extends Component {
             <BadgeList
               data={movieDetails?.genres}
               itemTextStyle={styles.badgeTextStyle}
+              containerStyle={styles.badgeListContainerStyle}
             />
+
+            <Text style={styles.headerTextStyle}>Credits</Text>
           </ScrollView>
         )}
       </Screen>
