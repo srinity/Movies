@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import Reactotron from '../Config/ReactotronConfig'
 
-import { GenresReducer, MoviesReducer } from './Reducers'
+import { GenresReducer, MovieReducer, MoviesReducer } from './Reducers'
 
 const persistGenreListConfig = {
   key: 'genres',
@@ -17,6 +17,7 @@ const middleWares = [Thunk]
 
 const rootReducer = combineReducers({
   movies: MoviesReducer,
+  movie: MovieReducer,
   genres: persistReducer(persistGenreListConfig, GenresReducer)
 })
 
