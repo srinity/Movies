@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar Component should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "marginRight": 15,
+      "width": 85,
+    }
+  }
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "https://www.themoviedb.org/t/p/w1280/rmIYKVdYT60zfsqfjNuB71f1y82.jpg",
+      }
+    }
+    style={
+      Object {
+        "borderRadius": 37.5,
+        "height": 75,
+        "overflow": "hidden",
+        "width": 75,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "#000000",
+        "fontSize": 14,
+        "marginTop": 7,
+        "textAlign": "center",
+      }
+    }
+  >
+    LeBron James
+  </Text>
+</View>
+`;
