@@ -1,0 +1,35 @@
+{
+  "totalPages": 1,
+  "currentPage": 1,
+  "movies": [
+    {
+      "id": 602223,
+      "title": "The Forever Purge",
+      "image": "https://www.themoviedb.org/t/p/w1280/uHA5COgDzcxjpYSHHulrKVl6ByL.jpg",
+      "releaseDate": "2021-06-30",
+      "voteAverage": 7.9,
+      "genres": [
+        {
+          "id": 12,
+          "name": "Adventure"
+        },
+        {
+          "id": 53,
+          "name": "Thriller"
+        },
+        {
+          "id": 28,
+          "name": "Action"
+        },
+        {
+          "id": 27,
+          "name": "Horror"
+        },
+        {
+          "id": 37,
+          "name": "Western"
+        }
+      ]
+    }
+  ]
+}
