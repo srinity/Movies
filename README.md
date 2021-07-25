@@ -6,44 +6,43 @@ This is a react-native that displays movies and their details
 
 1. Install node modules:
 
-    === "npm"
+    - npm
         ```
         npm install
         ```
 
-    === "yarn"
+    - yarn
         ```
         yarn
         ```
 
 2. Install ios pods:
 
-    === "npm"
+    - npm
         ```
         npm run install:pods
         ```
 
-    === "yarn"
+    - yarn
         ```
         yarn run install:pods
         ```
 
 3. Run the app on android or ios:
 
-    === "ios"
+    - ios
         ```
         npm run ios
         ```
 
-    === "android"
+    - android
         ```
         yarn run android
         ```
 
 ## App Preview
 
-!!! note
-    Kindly be aware that the android "gif" is slow because of the emulator was lagging and it is not because of the app.
+**NOTE** kindly be aware that the android "gif" is slow because of the emulator was lagging and it is not because of the app.
 
 ![](docs/images/ios.gif)
 ![](docs/images/android.gif)
