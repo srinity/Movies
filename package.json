@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -61,10 +62,5 @@
     "reactotron-react-native": "^4.0.3",
     "reactotron-redux": "^3.1.2",
     "typescript": "^4.3.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run git-hook"
-    }
   }
 }
