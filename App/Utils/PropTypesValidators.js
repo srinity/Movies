@@ -4,8 +4,9 @@ import colorNames from './RNColorNames'
 
 const colorPropType = (props, propName, componentName) => {
   if (!isColor(props[propName])) {
-    return new Error(`Invalid prop ${propName} passed to component ${componentName}, invalid color value.
-    Value passed "${props[propName]}" expected a valid hex, rgb, rgba, hsl, hsla or a valid RN color name.`)
+    return new Error(
+      `Invalid prop ${propName} passed to component ${componentName}, invalid color value.\nValue passed "${props[propName]}" expected a valid hex, rgb, rgba, hsl, hsla or a valid RN color name.`
+    )
   }
 }
 
@@ -52,4 +53,12 @@ function isHSLAColor(value) {
   )
 }
 
-export { colorPropType }
+export {
+  colorPropType,
+  isColor,
+  isHexColorCode,
+  isRGBColor,
+  isRGBAColor,
+  isHSLColor,
+  isHSLAColor
+}
