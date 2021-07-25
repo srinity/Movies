@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component should render back button correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#f5f5f5",
+      "flexDirection": "row",
+      "height": 60,
+      "justifyContent": "center",
+      "paddingHorizontal": 15,
+      "paddingVertical": 7,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 35,
+        },
+        Object {
+          "left": 15,
+          "padding": 7,
+          "position": "absolute",
+        },
+        Object {
+          "fontFamily": "Entypo",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`Header Component should render back button with title correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#f5f5f5",
+      "flexDirection": "row",
+      "height": 60,
+      "justifyContent": "center",
+      "paddingHorizontal": 15,
+      "paddingVertical": 7,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+          "fontSize": 35,
+        },
+        Object {
+          "left": 15,
+          "padding": 7,
+          "position": "absolute",
+        },
+        Object {
+          "fontFamily": "Entypo",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 24,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Movies
+  </Text>
+</View>
+`;
+
+exports[`Header Component should render title correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#f5f5f5",
+      "flexDirection": "row",
+      "height": 60,
+      "paddingHorizontal": 15,
+      "paddingVertical": 7,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 24,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Movies
+  </Text>
+</View>
+`;
