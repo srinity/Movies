@@ -1,7 +1,5 @@
 import { Platform, Dimensions } from 'react-native'
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
-
 const X_WIDTH = 375
 const X_HEIGHT = 812
 const XSMAX_WIDTH = 414
@@ -12,6 +10,8 @@ const IPHONE12_PROMAX_WIDTH = 428
 const IPHONE12_PROMAX_HEIGHT = 926
 
 export function isIPhoneDeviceWithNotch() {
+  const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
+
   return (
     Platform.OS === 'ios' &&
     ((screenHeight === X_HEIGHT && screenWidth === X_WIDTH) ||
