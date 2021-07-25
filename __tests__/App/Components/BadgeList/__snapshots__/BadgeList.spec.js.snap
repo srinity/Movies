@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeList Component should be able to customize containerStyle correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "width": "100%",
+      },
+      Object {
+        "backgroundColor": "#e23478",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#dddddd",
+          "borderRadius": 12.5,
+          "marginRight": 5,
+          "marginTop": 7,
+          "paddingHorizontal": 10,
+          "paddingVertical": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      id={1}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      Actions
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#dddddd",
+          "borderRadius": 12.5,
+          "marginRight": 5,
+          "marginTop": 7,
+          "paddingHorizontal": 10,
+          "paddingVertical": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      id={2}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      Animation
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`BadgeList Component should be able to customize itemStyle correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#dddddd",
+          "borderRadius": 12.5,
+          "marginRight": 5,
+          "marginTop": 7,
+          "paddingHorizontal": 10,
+          "paddingVertical": 2,
+        },
+        Object {
+          "backgroundColor": "#e23478",
+        },
+      ]
+    }
+  >
+    <Text
+      id={1}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      Actions
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#dddddd",
+          "borderRadius": 12.5,
+          "marginRight": 5,
+          "marginTop": 7,
+          "paddingHorizontal": 10,
+          "paddingVertical": 2,
+        },
+        Object {
+          "backgroundColor": "#e23478",
+        },
+      ]
+    }
+  >
+    <Text
+      id={2}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      Animation
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`BadgeList Component should be able to customize itemTextStyle correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#dddddd",
+          "borderRadius": 12.5,
+          "marginRight": 5,
+          "marginTop": 7,
+          "paddingHorizontal": 10,
+          "paddingVertical": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      id={1}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          },
+          Object {
+            "color": "#e23478",
+          },
+        ]
+      }
+    >
+      Actions
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#dddddd",
+          "borderRadius": 12.5,
+          "marginRight": 5,
+          "marginTop": 7,
+          "paddingHorizontal": 10,
+          "paddingVertical": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      id={2}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          },
+          Object {
+            "color": "#e23478",
+          },
+        ]
+      }
+    >
+      Animation
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`BadgeList Component should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "width": "100%",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#dddddd",
+          "borderRadius": 12.5,
+          "marginRight": 5,
+          "marginTop": 7,
+          "paddingHorizontal": 10,
+          "paddingVertical": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      id={1}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      Actions
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#dddddd",
+          "borderRadius": 12.5,
+          "marginRight": 5,
+          "marginTop": 7,
+          "paddingHorizontal": 10,
+          "paddingVertical": 2,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      id={2}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      Animation
+    </Text>
+  </View>
+</View>
+`;
