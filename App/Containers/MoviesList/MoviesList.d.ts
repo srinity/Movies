@@ -8,7 +8,10 @@ declare const MoviesList: FC<MoviesListProps>
 export default MoviesList
 
 export interface MoviesListProps
-  extends Omit<FlatListProps<MovieData>, 'data'> {
+  extends Omit<
+    FlatListProps<MovieData>,
+    'data' | 'onEndReachedThreshold' | 'onMomentumScrollBegin'
+  > {
   /**
    * The list of movies.
    *
@@ -21,5 +24,3 @@ export interface MoviesListProps
    */
   onMoviePress(movie: MovieCardProps): void
 }
-
-// export default class MoviesList extends FC<MoviesListProps> {}

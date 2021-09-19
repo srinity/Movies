@@ -18,12 +18,6 @@ const TABS_DATA = [
 ]
 
 class Movies extends Component {
-  constructor(props) {
-    super(props)
-
-    this.onEndReachedCalledDuringMomentum = {}
-  }
-
   componentDidMount() {
     this.getUpcomingMoviesPage(true)
   }
@@ -55,63 +49,37 @@ class Movies extends Component {
     navigation.navigate('Movie', { movieId: movie.id })
   }
 
-  onMomentumScrollBegin = key => {
-    this.onEndReachedCalledDuringMomentum[key] = false
-  }
-
-  onFetchingNewPageFinish = key => {
-    this.onEndReachedCalledDuringMomentum[key] = true
-  }
-
   getUpcomingMoviesPage = (initialPage = false) => {
     const { getUpcomingMovies, genreList, currentPage, totalPages } = this.props
 
-    const key = TABS_DATA[0].label
-
-    if (!this.onEndReachedCalledDuringMomentum[key]) {
-      this.onFetchingNewPageFinish(key)
-
-      getUpcomingMovies(
-        genreList,
-        currentPage?.upcoming + 1,
-        totalPages.upcoming,
-        initialPage
-      )
-    }
+    getUpcomingMovies(
+      genreList,
+      currentPage?.upcoming + 1,
+      totalPages.upcoming,
+      initialPage
+    )
   }
 
   getPopularMoviesPage = (initialPage = false) => {
     const { genreList, currentPage, totalPages, getPopularMovies } = this.props
 
-    const key = TABS_DATA[1].label
-
-    if (!this.onEndReachedCalledDuringMomentum[key]) {
-      this.onFetchingNewPageFinish(key)
-
-      getPopularMovies(
-        genreList,
-        currentPage?.popular + 1,
-        totalPages.popular,
-        initialPage
-      )
-    }
+    getPopularMovies(
+      genreList,
+      currentPage?.popular + 1,
+      totalPages.popular,
+      initialPage
+    )
   }
 
   getTopRatedMoviesPage = (initialPage = false) => {
     const { genreList, currentPage, totalPages, getTopRatedMovies } = this.props
 
-    const key = TABS_DATA[2].label
-
-    if (!this.onEndReachedCalledDuringMomentum[key]) {
-      this.onFetchingNewPageFinish(key)
-
-      getTopRatedMovies(
-        genreList,
-        currentPage?.topRated + 1,
-        totalPages.topRated,
-        initialPage
-      )
-    }
+    getTopRatedMovies(
+      genreList,
+      currentPage?.topRated + 1,
+      totalPages.topRated,
+      initialPage
+    )
   }
 
   renderProductsFooter = isAdditionalPagesLoading => {
@@ -139,8 +107,6 @@ class Movies extends Component {
         data={movies}
         onMoviePress={onPressHandler}
         onEndReached={() => onEndReached()}
-        onEndReachedThreshold={0.2}
-        onMomentumScrollBegin={() => this.onMomentumScrollBegin(key)}
         ListFooterComponent={this.renderProductsFooter(
           isAdditionalPagesLoading
         )}
