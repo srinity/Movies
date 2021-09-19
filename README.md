@@ -42,7 +42,7 @@ This is a react-native that displays movies and their details
 
 ## App Preview
 
-**NOTE** kindly be aware that the android "gif" is slow because of the emulator was lagging and it is not because of the app.
+**NOTE** kindly be aware that the android's "gif" is slow because of the emulator was lagging and it is not because of the app.
 
 ![](docs/images/ios.gif)
 ![](docs/images/android.gif)
