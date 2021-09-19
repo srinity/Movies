@@ -96,8 +96,13 @@ class Movies extends Component {
     movies,
     onPressHandler,
     onEndReached,
-    key
+    error
   }) => {
+    if (error) {
+      // TODO: Decide what the error will look like
+      return null
+    }
+
     return isLoading ? (
       <View style={styles.indicatorContainerStyle}>
         <ActivityIndicator color={Colors.brandColor} size="large" />
@@ -115,7 +120,7 @@ class Movies extends Component {
   }
 
   render() {
-    const { movies, isLoading, isAdditionalPagesLoading } = this.props
+    const { movies, isLoading, error, isAdditionalPagesLoading } = this.props
     console.tron.warn(this.props)
     return (
       <Screen title="Movies">
@@ -127,7 +132,7 @@ class Movies extends Component {
               movies: movies.upcoming,
               onPressHandler: this.onMoviePress,
               onEndReached: this.getUpcomingMoviesPage,
-              key: TABS_DATA[0].label
+              error: error.upcoming
             })}
           </Tabs.Tab>
 
@@ -138,7 +143,7 @@ class Movies extends Component {
               movies: movies.popular,
               onPressHandler: this.onMoviePress,
               onEndReached: this.getPopularMoviesPage,
-              key: TABS_DATA[1].label
+              error: error.popular
             })}
           </Tabs.Tab>
 
@@ -149,7 +154,7 @@ class Movies extends Component {
               movies: movies.topRated,
               onPressHandler: this.onMoviePress,
               onEndReached: this.getTopRatedMoviesPage,
-              key: TABS_DATA[2].label
+              error: error.topRated
             })}
           </Tabs.Tab>
         </Tabs>
@@ -177,6 +182,11 @@ Movies.propTypes = {
     upcoming: PropTypes.bool,
     topRated: PropTypes.bool,
     popular: PropTypes.bool
+  }),
+  error: PropTypes.shape({
+    upcoming: PropTypes.object,
+    topRated: PropTypes.object,
+    popular: PropTypes.object
   }),
   isAdditionalPagesLoading: PropTypes.shape({
     upcoming: PropTypes.bool,

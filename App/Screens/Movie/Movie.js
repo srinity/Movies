@@ -33,39 +33,50 @@ class Movie extends Component {
     )
   }
 
+  renderError = () => {
+    // TODO: Decide what the error will look like
+    return null
+  }
+
+  renderContent = (movieDetails, movieCredits) => {
+    return (
+      <ScrollView style={styles.containerStyle}>
+        <MovieInfo {...movieDetails} />
+
+        <Text style={styles.headerTextStyle}>Overview</Text>
+        <Text style={styles.overviewTextStyle}>{movieDetails?.overview}</Text>
+
+        <Text style={styles.headerTextStyle}>Genres</Text>
+        <BadgeList
+          data={movieDetails?.genres}
+          itemTextStyle={styles.badgeTextStyle}
+          containerStyle={styles.badgeListContainerStyle}
+        />
+
+        <Text style={styles.headerTextStyle}>Credits</Text>
+        <AvatarList data={movieCredits} />
+      </ScrollView>
+    )
+  }
+
   render() {
     const {
       movieDetails,
       movieCredits,
       isMovieDetailsLoading,
-      isMovieCreditsLoading
+      isMovieCreditsLoading,
+      movieDetailsError,
+      movieCreditsError
     } = this.props
 
     console.tron.warn(this.props)
     return (
       <Screen withBack onBackPress={this.onBackPress}>
-        {isMovieDetailsLoading || isMovieCreditsLoading ? (
-          this.renderLoading()
-        ) : (
-          <ScrollView style={styles.containerStyle}>
-            <MovieInfo {...movieDetails} />
-
-            <Text style={styles.headerTextStyle}>Overview</Text>
-            <Text style={styles.overviewTextStyle}>
-              {movieDetails?.overview}
-            </Text>
-
-            <Text style={styles.headerTextStyle}>Genres</Text>
-            <BadgeList
-              data={movieDetails?.genres}
-              itemTextStyle={styles.badgeTextStyle}
-              containerStyle={styles.badgeListContainerStyle}
-            />
-
-            <Text style={styles.headerTextStyle}>Credits</Text>
-            <AvatarList data={movieCredits} />
-          </ScrollView>
-        )}
+        {isMovieDetailsLoading || isMovieCreditsLoading
+          ? this.renderLoading()
+          : movieDetailsError || movieCreditsError
+          ? this.renderError()
+          : this.renderContent(movieDetails, movieCredits)}
       </Screen>
     )
   }
